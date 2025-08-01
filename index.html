@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo Relacional - Sistema de Gestión Académica</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Modelo Relacional</h1>
+            <p>Sistema de Gestión Académica Universitaria</p>
+            <p class="subtitle">Universidad Virtual "Aprende Online"</p>
+        </div>
+        
+        <div class="erd-container">
+            <!-- Sección de Entidades -->
+            <div class="diagram-section">
+                <h2 class="section-title">
+                    <span class="icon">1</span>
+                    Entidades del Sistema
+                </h2>
+                
+                <div class="tables-grid">
+                    <!-- Tabla Estudiantes -->
+                    <div class="table-entity">
+                        <div class="table-header">
+                            👨‍🎓 ESTUDIANTES
+                        </div>
+                        <div class="table-fields">
+                            <div class="field-row">
+                                <div class="key-indicator pk-indicator"></div>
+                                <span class="field-name">id_estudiante</span>
+                                <span class="field-type pk">INT PK</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">nombre_completo</span>
+                                <span class="field-type">VARCHAR(100)</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">correo_electronico</span>
+                                <span class="field-type">VARCHAR(100)</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">genero</span>
+                                <span class="field-type">ENUM</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">identificacion</span>
+                                <span class="field-type">VARCHAR(20)</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">carrera</span>
+                                <span class="field-type">VARCHAR(50)</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">fecha_nacimiento</span>
+                                <span class="field-type">DATE</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">fecha_ingreso</span>
+                                <span class="field-type">DATE</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">estado_academico</span>
+                                <span class="field-type">ENUM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabla Docentes -->
+                    <div class="table-entity">
+                        <div class="table-header">
+                            👨‍🏫 DOCENTES
+                        </div>
+                        <div class="table-fields">
+                            <div class="field-row">
+                                <div class="key-indicator pk-indicator"></div>
+                                <span class="field-name">id_docente</span>
+                                <span class="field-type pk">INT PK</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">nombre_completo</span>
+                                <span class="field-type">VARCHAR(100)</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">correo_institucional</span>
+                                <span class="field-type">VARCHAR(100)</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">departamento_academico</span>
+                                <span class="field-type">VARCHAR(50)</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">anios_experiencia</span>
+                                <span class="field-type">INT</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabla Cursos -->
+                    <div class="table-entity">
+                        <div class="table-header">
+                            📚 CURSOS
+                        </div>
+                        <div class="table-fields">
+                            <div class="field-row">
+                                <div class="key-indicator pk-indicator"></div>
+                                <span class="field-name">id_curso</span>
+                                <span class="field-type pk">INT PK</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">nombre</span>
+                                <span class="field-type">VARCHAR(100)</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">codigo</span>
+                                <span class="field-type">VARCHAR(10)</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">creditos</span>
+                                <span class="field-type">INT</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">semestre</span>
+                                <span class="field-type">INT</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator fk-indicator"></div>
+                                <span class="field-name">id_docente</span>
+                                <span class="field-type fk">INT FK</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabla Inscripciones -->
+                    <div class="table-entity">
+                        <div class="table-header">
+                            📝 INSCRIPCIONES
+                        </div>
+                        <div class="table-fields">
+                            <div class="field-row">
+                                <div class="key-indicator pk-indicator"></div>
+                                <span class="field-name">id_inscripcion</span>
+                                <span class="field-type pk">INT PK</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator fk-indicator"></div>
+                                <span class="field-name">id_estudiante</span>
+                                <span class="field-type fk">INT FK</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator fk-indicator"></div>
+                                <span class="field-name">id_curso</span>
+                                <span class="field-type fk">INT FK</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">fecha_inscripcion</span>
+                                <span class="field-type">DATE</span>
+                            </div>
+                            <div class="field-row">
+                                <div class="key-indicator"></div>
+                                <span class="field-name">calificacion_final</span>
+                                <span class="field-type">DECIMAL(3,1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="key-indicator pk-indicator"></div>
+                        <span>Clave Primaria (PK)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="key-indicator fk-indicator"></div>
+                        <span>Clave Foránea (FK)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="key-indicator"></div>
+                        <span>Atributo Regular</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de Relaciones -->
+            <div class="diagram-section">
+                <h2 class="section-title">
+                    <span class="icon">2</span>
+                    Relaciones entre Entidades
+                </h2>
+                
+                <div class="relationships-container">
+                    <div class="relationship-item">
+                        <span class="relationship-text">
+                            <strong>DOCENTES</strong> imparten <strong>CURSOS</strong>
+                        </span>
+                        <span class="cardinality">1 : N</span>
+                    </div>
+                    
+                    <div class="relationship-item">
+                        <span class="relationship-text">
+                            <strong>ESTUDIANTES</strong> se inscriben en <strong>INSCRIPCIONES</strong>
+                        </span>
+                        <span class="cardinality">1 : N</span>
+                    </div>
+                    
+                    <div class="relationship-item">
+                        <span class="relationship-text">
+                            <strong>CURSOS</strong> tienen múltiples <strong>INSCRIPCIONES</strong>
+                        </span>
+                        <span class="cardinality">1 : N</span>
+                    </div>
+                    
+                    <div class="relationship-item">
+                        <span class="relationship-text">
+                            <strong>ESTUDIANTES</strong> ↔ <strong>CURSOS</strong> (a través de INSCRIPCIONES)
+                        </span>
+                        <span class="cardinality">N : M</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reglas de Negocio -->
+        <div class="business-rules">
+            <h2 class="section-title">
+                <span class="icon">3</span>
+                Reglas de Negocio y Restricciones
+            </h2>
+            
+            <div class="rules-grid">
+                <div class="rule-category">
+                    <h4>🎓 Estudiantes</h4>
+                    <ul class="rule-list">
+                        <li>Email único en el sistema</li>
+                        <li>Identificación única</li>
+                        <li>Fecha nacimiento < fecha ingreso</li>
+                        <li>Estados: Activo, Inactivo, Graduado</li>
+                        <li>Género: M, F, Otro</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-category">
+                    <h4>👨‍🏫 Docentes</h4>
+                    <ul class="rule-list">
+                        <li>Email institucional único</li>
+                        <li>Años experiencia ≥ 0</li>
+                        <li>Un docente por departamento</li>
+                        <li>Puede impartir múltiples cursos</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-category">
+                    <h4>📚 Cursos</h4>
+                    <ul class="rule-list">
+                        <li>Código de curso único</li>
+                        <li>Créditos > 0</li>
+                        <li>Semestre entre 1 y 10</li>
+                        <li>Un docente asignado por curso</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-category">
+                    <h4>📝 Inscripciones</h4>
+                    <ul class="rule-list">
+                        <li>Un estudiante por curso máximo</li>
+                        <li>Calificación entre 0.0 y 5.0</li>
+                        <li>Fecha inscripción obligatoria</li>
+                        <li>Integridad referencial FK</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
